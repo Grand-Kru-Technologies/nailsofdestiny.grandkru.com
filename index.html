@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="temple" data-palette="gold" data-view="site">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index, follow" />
+    <meta
+      name="description"
+      content="Nails of Destiny offers plant-based nail services—sea moss soaks, mineral pedicures, herb cuticle rites, and the Destiny Set—then a small take-home shelf."
+    />
+    <meta name="theme-color" content="#0e120d" />
+    <title>Plant-Based Nail Services — Nails of Destiny</title>
+    <link rel="canonical" href="./" />
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="sitemap.xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Nails of Destiny" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:title" content="Plant-Based Nail Services — Nails of Destiny" />
+    <meta
+      property="og:description"
+      content="Nails of Destiny offers plant-based nail services—sea moss soaks, mineral pedicures, herb cuticle rites, and the Destiny Set—then a small take-home shelf."
+    />
+    <meta property="og:url" content="./" />
+    <meta property="og:image" content="assets/theme-alkaline-temple-hero.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="675" />
+    <meta property="og:image:alt" content="Alkaline nail sanctuary with sea moss bowls and warm candlelight" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Plant-Based Nail Services — Nails of Destiny" />
+    <meta
+      name="twitter:description"
+      content="Nails of Destiny offers plant-based nail services—sea moss soaks, mineral pedicures, herb cuticle rites, and the Destiny Set—then a small take-home shelf."
+    />
+    <meta name="twitter:image" content="assets/theme-alkaline-temple-hero.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,500;0,600;1,500;1,600&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Montserrat:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/themes.css" />
+    <script>
+      (function () {
+        var origin = location.origin + location.pathname.replace(/index\.html?$/i, "");
+        if (!origin.endsWith("/")) origin += "/";
+        var image = origin + "assets/theme-alkaline-temple-hero.png";
+        var set = function (selector, attr, value) {
+          var node = document.querySelector(selector);
+          if (node) node.setAttribute(attr, value);
+        };
+        set('link[rel="canonical"]', "href", origin);
+        set('meta[property="og:url"]', "content", origin);
+        set('meta[property="og:image"]', "content", image);
+        set('meta[name="twitter:image"]', "content", image);
+      })();
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "#website",
+            "name": "Nails of Destiny",
+            "url": "./",
+            "description": "Plant-based nail services and a small take-home shelf. Afrocentric on purpose."
+          },
+          {
+            "@type": "NailSalon",
+            "@id": "#salon",
+            "name": "Nails of Destiny",
+            "description": "A plant-based nail house. Book the chair first: sea moss soak, mineral pedicure, herb cuticle ritual, or the Destiny Set. We do not claim to heal disease.",
+            "url": "./",
+            "image": "assets/theme-alkaline-temple-hero.png",
+            "priceRange": "$18–$85",
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Nail services",
+              "itemListElement": [
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Sea Moss Soak & Shape",
+                    "description": "Warm gel soak, cuticle rite, and a natural shape that follows the nail.",
+                    "provider": { "@id": "#salon" }
+                  },
+                  "price": "45.00",
+                  "priceCurrency": "USD"
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Mineral Pedicure",
+                    "description": "Clay, salt, and herb steam for feet that have walked too much concrete.",
+                    "provider": { "@id": "#salon" }
+                  },
+                  "price": "55.00",
+                  "priceCurrency": "USD"
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Herb Cuticle Ritual",
+                    "description": "Burdock, olive, and plant oils. Soft edges. No burning strippers.",
+                    "provider": { "@id": "#salon" }
+                  },
+                  "price": "35.00",
+                  "priceCurrency": "USD"
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "The Destiny Set",
+                    "description": "Full service in gold, clay, sage, or sea moss — whatever the house is wearing.",
+                    "provider": { "@id": "#salon" }
+                  },
+                  "price": "85.00",
+                  "priceCurrency": "USD"
+                }
+              ]
+            }
+          },
+          {
+            "@type": "ItemList",
+            "name": "Take-home nail products",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "item": {
+                  "@type": "Product",
+                  "name": "Sea Moss Nail Soak",
+                  "description": "Home jar of the service soak.",
+                  "image": "assets/service-soak.png",
+                  "offers": { "@type": "Offer", "price": "28.00", "priceCurrency": "USD" }
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "item": {
+                  "@type": "Product",
+                  "name": "Plant-Pigment Polish",
+                  "description": "Gold, clay, sage, or sea moss.",
+                  "image": "assets/service-destiny.png",
+                  "offers": { "@type": "Offer", "price": "22.00", "priceCurrency": "USD" }
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "item": {
+                  "@type": "Product",
+                  "name": "Herb Cuticle Oil",
+                  "description": "The ritual, bottled.",
+                  "image": "assets/service-cuticle.png",
+                  "offers": { "@type": "Offer", "price": "18.00", "priceCurrency": "USD" }
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <div class="veil" aria-hidden="true"></div>
+    <header class="dock">
+      <button type="button" class="dock-mark" id="back-to-chooser">Nails of Destiny</button>
+      <p class="dock-note" id="dock-note">Three houses. Pick the one that feels like home.</p>
+      <button type="button" class="dock-back" id="all-houses">Keep this look</button>
+    </header>
+
+    <aside class="float-rail float-looks" aria-label="Look and feel">
+      <div class="float-anchor">
+        <div class="float-panel" id="look-panel">
+          <p class="kicker">Look &amp; feel</p>
+          <button type="button" class="float-house" data-theme-btn="temple" aria-pressed="true">
+            <span class="panel-media temple" aria-hidden="true"></span>
+            <span>Alkaline Temple</span>
+          </button>
+          <button type="button" class="float-house" data-theme-btn="clay" aria-pressed="false">
+            <span class="panel-media clay" aria-hidden="true"></span>
+            <span>Red Clay</span>
+          </button>
+          <button type="button" class="float-house" data-theme-btn="garden" aria-pressed="false">
+            <span class="panel-media garden" aria-hidden="true"></span>
+            <span>Wild Herb Garden</span>
+          </button>
+        </div>
+        <button class="float-toggle" type="button" aria-expanded="false" aria-controls="look-panel">House</button>
+      </div>
+    </aside>
+
+    <aside class="float-rail float-palettes" aria-label="Color templates">
+      <div class="float-anchor">
+        <div class="float-panel" id="palette-panel">
+          <p class="kicker">Color</p>
+          <div class="palette-grid" id="palette-grid"></div>
+        </div>
+        <button class="float-toggle" type="button" aria-expanded="false" aria-controls="palette-panel">Color</button>
+      </div>
+    </aside>
+
+    <main id="main">
+    <div class="view view-site" id="site">
+    <article class="house" id="shop" aria-label="Service catalog preview">
+      <nav class="salon-nav" aria-label="Salon">
+        <span class="wordmark">Nails of Destiny</span>
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#shelf">Products</a></li>
+          <li><a href="#choose">Keep this look</a></li>
+        </ul>
+        <a class="btn btn-primary" href="#services">Book a service</a>
+      </nav>
+
+      <header class="hero">
+        <div class="hero-photo" role="img" aria-label="Nail service atmosphere for this look"></div>
+        <div class="hero-copy">
+          <p class="kicker" data-copy="eyebrow">Plant · Mineral · Ancestral</p>
+          <h1 data-copy="headline">Where the body is a garden.</h1>
+          <p class="hero-lede" data-copy="hero">
+            A nail-service catalog first — then a small take-home shelf. Plant pigments,
+            sea moss soaks, and hands that treat beauty as a rite.
+          </p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#services">See the service catalog</a>
+            <button class="btn btn-ghost" type="button" id="hero-choose">Keep this house</button>
+          </div>
+        </div>
+      </header>
+
+      <section class="rituals catalog" id="services">
+        <div class="section-lead">
+          <p class="kicker">Catalog · Services first</p>
+          <h2 data-copy="menuTitle">Nail services. This is the first menu.</h2>
+          <p class="muted" data-copy="menuLede">
+            Same four services in every house. Book the chair first. Products wait below.
+          </p>
+        </div>
+        <div class="cards">
+          <article class="card span-wide">
+            <span class="num">01</span>
+            <div class="catalog-body">
+              <p class="tag">Service</p>
+              <h3>Sea Moss Soak &amp; Shape</h3>
+              <figure class="service-figure">
+                <img
+                  class="service-photo"
+                  src="assets/service-soak.png"
+                  alt="Hands soaking in a warm sea moss gel bowl with herbs"
+                  width="1200"
+                  height="900"
+                />
+              </figure>
+              <p>Warm gel soak, cuticle rite, and a natural shape that follows the nail.</p>
+              <p class="meta"><span class="price">$45</span><span>45 min</span></p>
+              <button class="btn btn-primary" type="button">Book this service</button>
+            </div>
+          </article>
+          <article class="card">
+            <span class="num">02</span>
+            <div class="catalog-body">
+              <p class="tag">Service</p>
+              <h3>Mineral Pedicure</h3>
+              <figure class="service-figure">
+                <img
+                  class="service-photo"
+                  src="assets/service-pedicure.png"
+                  alt="Feet in a terracotta mineral pedicure basin with clay and herb steam"
+                  width="1200"
+                  height="900"
+                  loading="lazy"
+                />
+              </figure>
+              <p>Clay, salt, and herb steam for feet that have walked too much concrete.</p>
+              <p class="meta"><span class="price">$55</span><span>60 min</span></p>
+              <button class="btn btn-ghost" type="button">Book this service</button>
+            </div>
+          </article>
+          <article class="card">
+            <span class="num">03</span>
+            <div class="catalog-body">
+              <p class="tag">Service</p>
+              <h3>Herb Cuticle Ritual</h3>
+              <figure class="service-figure">
+                <img
+                  class="service-photo"
+                  src="assets/service-cuticle.png"
+                  alt="Herb oil being massaged into cuticles on deep brown hands"
+                  width="1200"
+                  height="900"
+                  loading="lazy"
+                />
+              </figure>
+              <p>Burdock, olive, and plant oils. Soft edges. No burning strippers.</p>
+              <p class="meta"><span class="price">$35</span><span>30 min</span></p>
+              <button class="btn btn-ghost" type="button">Book this service</button>
+            </div>
+          </article>
+          <article class="card span-tall">
+            <span class="num">04</span>
+            <div class="catalog-body">
+              <p class="tag">Service</p>
+              <h3>The Destiny Set</h3>
+              <figure class="service-figure">
+                <img
+                  class="service-photo"
+                  src="assets/service-destiny.png"
+                  alt="Finished Destiny Set nails in gold, sage, and sea moss beside herbs"
+                  width="1200"
+                  height="900"
+                  loading="lazy"
+                />
+              </figure>
+              <p>Full service in gold, clay, sage, or sea moss — whatever the house is wearing.</p>
+              <p class="meta"><span class="price">$85</span><span>75 min</span></p>
+              <button class="btn btn-primary" type="button">Book this service</button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="rituals catalog products" id="shelf">
+        <div class="section-lead">
+          <p class="kicker">Catalog · Take home after</p>
+          <h2>Nail products. Second.</h2>
+          <p class="muted">The same formulas used in the chair, if you want them on your shelf.</p>
+        </div>
+        <div class="cards product-cards">
+          <article class="card">
+            <span class="num">A</span>
+            <div class="catalog-body">
+              <p class="tag">Product</p>
+              <h3>Sea Moss Nail Soak</h3>
+              <p>Home jar of the service soak.</p>
+              <p class="meta"><span class="price">$28</span></p>
+              <button class="btn btn-ghost" type="button">Add to bag</button>
+            </div>
+          </article>
+          <article class="card">
+            <span class="num">B</span>
+            <div class="catalog-body">
+              <p class="tag">Product</p>
+              <h3>Plant-Pigment Polish</h3>
+              <p>Gold, clay, sage, or sea moss.</p>
+              <p class="meta"><span class="price">$22</span></p>
+              <button class="btn btn-ghost" type="button">Add to bag</button>
+            </div>
+          </article>
+          <article class="card">
+            <span class="num">C</span>
+            <div class="catalog-body">
+              <p class="tag">Product</p>
+              <h3>Herb Cuticle Oil</h3>
+              <p>The ritual, bottled.</p>
+              <p class="meta"><span class="price">$18</span></p>
+              <button class="btn btn-ghost" type="button">Add to bag</button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="story-block" id="house">
+        <figure class="still-frame" role="img" aria-label="Materials of this house"></figure>
+        <div>
+          <p class="kicker">The house</p>
+          <h2 data-copy="houseTitle">Built for people who already drink the teas.</h2>
+          <p class="drop" data-copy="house">
+            Every look opens on the same service catalog: soak, pedicure, cuticle rite,
+            Destiny Set. Products come after. Afrocentric on purpose.
+          </p>
+          <p class="muted">We do not claim to heal disease. We claim a cleaner table and slower hands.</p>
+        </div>
+      </section>
+
+      <section class="stories" id="stories">
+        <h2 class="kicker">After they sat</h2>
+        <div id="quotes" aria-live="polite">
+          <blockquote class="quote" data-quote="0">
+            <p>I booked the sea moss soak first. The room smelled like a kitchen and the set still looked expensive.</p>
+            <footer>Imani R. · alkaline kitchen, Atlanta</footer>
+          </blockquote>
+          <blockquote class="quote" data-quote="1" hidden>
+            <p>The mineral pedicure felt like Sunday at my auntie’s — clay, gold, and nobody rushing my feet.</p>
+            <footer>Keisha M. · natural hair studio regular</footer>
+          </blockquote>
+          <blockquote class="quote" data-quote="2" hidden>
+            <p>They asked what herbs I already use, then did the cuticle ritual. I took the oil home after.</p>
+            <footer>Ayo T. · herbalist</footer>
+          </blockquote>
+        </div>
+        <div class="quote-nav">
+          <button type="button" id="quote-prev" aria-controls="quotes">Previous</button>
+          <button type="button" id="quote-next" aria-controls="quotes">Next</button>
+          <span id="quote-status">Story 1 of 3</span>
+        </div>
+      </section>
+
+      <section class="visit">
+        <p class="kicker">By appointment</p>
+        <h2 data-copy="booking">Services first. Then the shelf.</h2>
+        <a class="btn btn-primary" href="#services">Back to the service catalog</a>
+      </section>
+    </article>
+
+    <section class="decide" id="choose">
+      <p class="kicker">Keep or comment</p>
+      <h2>Stay with this house?</h2>
+      <p class="muted" data-copy="chooser">You are previewing Alkaline Temple · Gold Grove.</p>
+      <p class="muted">Houses and colors live on the rails. This is only to keep one or ask for something else.</p>
+      <button class="btn btn-primary" type="button" id="choose-look">Keep this look and palette</button>
+
+      <form id="feedback-form" novalidate>
+        <div class="error-summary" id="error-summary" tabindex="-1"></div>
+        <label for="comment">Or write what you’d rather see</label>
+        <textarea id="comment" name="comment" placeholder="Mix clay with sea moss? More gold? A fourth house?"></textarea>
+        <label for="name">Your name (optional)</label>
+        <input id="name" name="name" type="text" autocomplete="name" />
+        <div class="cta-row">
+          <button class="btn btn-primary" type="submit">Send comment</button>
+          <button class="btn btn-ghost" type="button" id="copy-feedback">Copy feedback</button>
+        </div>
+        <div class="feedback" id="feedback" role="status"></div>
+      </form>
+    </section>
+    </div>
+    </main>
+
+    <footer class="site-footer">
+      <p>Nails of Destiny · plant-based nail services</p>
+      <p class="muted">We do not claim to heal disease. We claim a cleaner table and slower hands.</p>
+      <nav aria-label="Footer">
+        <a href="#services">Services</a>
+        <a href="#shelf">Products</a>
+        <a href="#choose">Keep this look</a>
+      </nav>
+    </footer>
+
+    <script src="js/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "name": "nailsofdestiny-grandkru",
+  "account_id": "120d0baf442854f3f9b21e237688ae98",
+  "compatibility_date": "2026-08-22",
+  "assets": {
+    "directory": "."
+  },
+  "routes": [
+    {
+      "pattern": "nailsofdestiny.grandkru.com",
+      "custom_domain": true
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+.cursor
+.git
+.github
+.wrangler
+design-system
+node_modules
+.gitignore
+.assetsignore
+wrangler.jsonc
+README.md

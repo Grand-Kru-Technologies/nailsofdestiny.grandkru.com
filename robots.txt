@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nailsofdestiny.grandkru.com/sitemap.xml
