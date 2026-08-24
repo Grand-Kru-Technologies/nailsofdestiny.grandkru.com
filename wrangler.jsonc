@@ -1,14 +1,21 @@
 {
   "name": "nailsofdestiny-grandkru",
   "account_id": "120d0baf442854f3f9b21e237688ae98",
+  "main": "worker.js",
   "compatibility_date": "2026-08-22",
   "assets": {
-    "directory": "."
+    "directory": ".",
+    "binding": "ASSETS",
+    "run_worker_first": true
   },
   "routes": [
     {
       "pattern": "nailsofdestiny.grandkru.com",
       "custom_domain": true
     }
-  ]
+  ],
+  "vars": {
+    "AUTH_USER": "nails",
+    "AUTH_PASSWORD": "grove"
+  }
 }
