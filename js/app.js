@@ -419,8 +419,246 @@ document.getElementById("copy-feedback").addEventListener("click", async () => {
 document.getElementById("quote-prev").addEventListener("click", () => showQuote(quoteIndex - 1));
 document.getElementById("quote-next").addEventListener("click", () => showQuote(quoteIndex + 1));
 
+const TOUR_KEY = "nails-of-destiny-tour";
+const tourRoot = document.getElementById("tour");
+const tourCard = document.getElementById("tour-card");
+const tourTitle = document.getElementById("tour-title");
+const tourBody = document.getElementById("tour-body");
+const tourCount = document.getElementById("tour-count");
+const tourSkip = document.getElementById("tour-skip");
+const tourBack = document.getElementById("tour-back");
+const tourNext = document.getElementById("tour-next");
+const startTourButton = document.getElementById("start-tour");
+const lookRail = document.querySelector(".float-looks");
+const colorRail = document.querySelector(".float-palettes");
+
+const TOUR_STEPS = [
+  {
+    title: "This page picks a look.",
+    body: "You are inside a salon catalog. The four services stay the same. House and Color only change the room they sit in.",
+  },
+  {
+    title: "House is the room.",
+    body: "Open House for three layouts: Alkaline Temple, Red Clay, and Wild Herb Garden. Type, photos, and the shape of the page change with the house.",
+    target: ".float-looks",
+    rail: "look",
+    place: "right",
+  },
+  {
+    title: "Color is the paint.",
+    body: "Each house has three palettes. Try one. The menu does not move.",
+    target: ".float-palettes",
+    rail: "color",
+    place: "left",
+  },
+  {
+    title: "Keep the one that feels like home.",
+    body: "When a pair feels right, keep it. Or scroll to the bottom and say what you’d rather see.",
+    target: "#all-houses",
+    place: "below",
+  },
+];
+
+let tourIndex = 0;
+let tourActive = false;
+let tourBusy = false;
+let tourReturnFocus = null;
+
+function tourSeen() {
+  try {
+    return Boolean(JSON.parse(localStorage.getItem(TOUR_KEY) || "{}").seen);
+  } catch {
+    return false;
+  }
+}
+
+function markTourSeen() {
+  localStorage.setItem(TOUR_KEY, JSON.stringify({ seen: true, at: new Date().toISOString() }));
+}
+
+function setPageInert(on) {
+  [...document.body.children].forEach((node) => {
+    if (node === tourRoot || node.classList.contains("skip-link")) return;
+    if (on) node.setAttribute("inert", "");
+    else node.removeAttribute("inert");
+  });
+}
+
+function clearTourTarget() {
+  document.querySelectorAll(".is-tour-target").forEach((node) => {
+    node.classList.remove("is-tour-target");
+  });
+}
+
+async function prepareTourStep(step) {
+  if (step.rail === "look") {
+    await closeRail(colorRail, true);
+    if (!lookRail.classList.contains("is-open")) await openRail(lookRail);
+  } else if (step.rail === "color") {
+    await closeRail(lookRail, true);
+    if (!colorRail.classList.contains("is-open")) await openRail(colorRail);
+  } else {
+    await Promise.all([closeRail(lookRail, true), closeRail(colorRail, true)]);
+  }
+}
+
+function placeTourCard(step) {
+  const margin = 14;
+  const cardW = Math.min(360, window.innerWidth - 28);
+  tourCard.style.width = `${cardW}px`;
+  const cardH = tourCard.offsetHeight;
+  const target = step.target ? document.querySelector(step.target) : null;
+  let top;
+  let left;
+
+  if (!target) {
+    left = (window.innerWidth - cardW) / 2;
+    top = Math.max(16, (window.innerHeight - cardH) / 2);
+  } else {
+    const box = target.getBoundingClientRect();
+    const canRight = step.place === "right" && box.right + margin + cardW <= window.innerWidth - 12;
+    const canLeft = step.place === "left" && box.left - margin - cardW >= 12;
+    const canBelow = box.bottom + margin + cardH <= window.innerHeight - 12;
+
+    if (canRight) {
+      left = box.right + margin;
+      top = Math.min(box.top, window.innerHeight - cardH - 12);
+    } else if (canLeft) {
+      left = box.left - margin - cardW;
+      top = Math.min(box.top, window.innerHeight - cardH - 12);
+    } else if (step.place === "below" && canBelow) {
+      left = Math.min(Math.max(12, box.left + box.width / 2 - cardW / 2), window.innerWidth - cardW - 12);
+      top = box.bottom + margin;
+    } else {
+      left = Math.min(Math.max(12, box.left + box.width / 2 - cardW / 2), window.innerWidth - cardW - 12);
+      top = box.top - cardH - margin;
+      if (top < 12) {
+        left = (window.innerWidth - cardW) / 2;
+        top = Math.max(12, Math.min(box.top - cardH - margin, (window.innerHeight - cardH) / 2));
+        if (top < 12) top = 12;
+      }
+    }
+  }
+
+  tourCard.style.left = `${Math.max(12, Math.min(left, window.innerWidth - cardW - 12))}px`;
+  tourCard.style.top = `${Math.max(12, Math.min(top, window.innerHeight - cardH - 12))}px`;
+}
+
+async function renderTourStep() {
+  const step = TOUR_STEPS[tourIndex];
+  const last = tourIndex === TOUR_STEPS.length - 1;
+  await prepareTourStep(step);
+  clearTourTarget();
+  if (step.target) document.querySelector(step.target)?.classList.add("is-tour-target");
+  tourCount.textContent = `${tourIndex + 1} of ${TOUR_STEPS.length}`;
+  tourTitle.textContent = step.title;
+  tourBody.textContent = step.body;
+  tourBack.hidden = tourIndex === 0;
+  tourNext.textContent = last ? "Got it" : "Next";
+  placeTourCard(step);
+  await paint();
+  placeTourCard(step);
+  tourTitle.focus();
+}
+
+async function goTour(delta) {
+  if (!tourActive || tourBusy) return;
+  const next = tourIndex + delta;
+  if (next < 0) return;
+  if (next >= TOUR_STEPS.length) {
+    await stopTour();
+    return;
+  }
+  tourBusy = true;
+  tourIndex = next;
+  tourBack.disabled = true;
+  tourNext.disabled = true;
+  try {
+    await renderTourStep();
+  } finally {
+    tourBusy = false;
+    tourBack.disabled = false;
+    tourNext.disabled = false;
+  }
+}
+
+async function startTour() {
+  if (tourActive || tourBusy) return;
+  tourActive = true;
+  tourBusy = true;
+  tourReturnFocus =
+    document.activeElement && document.activeElement !== document.body
+      ? document.activeElement
+      : startTourButton;
+  tourIndex = 0;
+  document.documentElement.classList.add("is-touring");
+  tourRoot.hidden = false;
+  setPageInert(true);
+  try {
+    await renderTourStep();
+  } finally {
+    tourBusy = false;
+  }
+}
+
+async function stopTour() {
+  if (!tourActive) return;
+  tourActive = false;
+  tourBusy = false;
+  markTourSeen();
+  clearTourTarget();
+  await Promise.all([closeRail(lookRail, true), closeRail(colorRail, true)]);
+  tourRoot.hidden = true;
+  document.documentElement.classList.remove("is-touring");
+  setPageInert(false);
+  const focusBack =
+    tourReturnFocus && typeof tourReturnFocus.focus === "function" && document.contains(tourReturnFocus)
+      ? tourReturnFocus
+      : startTourButton;
+  focusBack.focus();
+}
+
+function onTourKey(event) {
+  if (!tourActive) return;
+  if (event.key === "Escape") {
+    event.preventDefault();
+    stopTour();
+    return;
+  }
+  if (event.key !== "Tab") return;
+  const buttons = [tourTitle, tourSkip, tourBack, tourNext].filter((button) => !button.hidden);
+  const first = buttons[0];
+  const last = buttons[buttons.length - 1];
+  if (event.shiftKey && document.activeElement === first) {
+    event.preventDefault();
+    last.focus();
+  } else if (!event.shiftKey && document.activeElement === last) {
+    event.preventDefault();
+    first.focus();
+  }
+}
+
+function setupTour() {
+  startTourButton.addEventListener("click", () => {
+    clearTimeout(setupTour.timer);
+    startTour();
+  });
+  tourSkip.addEventListener("click", stopTour);
+  tourBack.addEventListener("click", () => goTour(-1));
+  tourNext.addEventListener("click", () => goTour(1));
+  document.addEventListener("keydown", onTourKey);
+  window.addEventListener("resize", () => {
+    if (tourActive) placeTourCard(TOUR_STEPS[tourIndex]);
+  });
+  const force = new URLSearchParams(location.search).has("tour");
+  if (force || !tourSeen()) {
+    setupTour.timer = setTimeout(startTour, reduceMotion() ? 0 : 480);
+  }
+}
+
 setupRails();
 const initial = savedState();
 applyTheme(initial.choice || "temple", initial.palette);
 if (initial.choice || initial.comment) showFeedback(summarize(initial));
 showQuote(0);
+setupTour();

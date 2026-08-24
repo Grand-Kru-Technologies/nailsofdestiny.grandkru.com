@@ -173,7 +173,10 @@
     <header class="dock">
       <button type="button" class="dock-mark" id="back-to-chooser">Nails of Destiny</button>
       <p class="dock-note" id="dock-note">Three houses. Pick the one that feels like home.</p>
-      <button type="button" class="dock-back" id="all-houses">Keep this look</button>
+      <div class="dock-actions">
+        <button type="button" class="dock-tour" id="start-tour">How this works</button>
+        <button type="button" class="dock-back" id="all-houses">Keep this look</button>
+      </div>
     </header>
 
     <aside class="float-rail float-looks" aria-label="Look and feel">
@@ -193,7 +196,7 @@
             <span>Wild Herb Garden</span>
           </button>
         </div>
-        <button class="float-toggle" type="button" aria-expanded="false" aria-controls="look-panel">House</button>
+        <button class="float-toggle" type="button" id="look-toggle" aria-expanded="false" aria-controls="look-panel">House</button>
       </div>
     </aside>
 
@@ -203,7 +206,7 @@
           <p class="kicker">Color</p>
           <div class="palette-grid" id="palette-grid"></div>
         </div>
-        <button class="float-toggle" type="button" aria-expanded="false" aria-controls="palette-panel">Color</button>
+        <button class="float-toggle" type="button" id="palette-toggle" aria-expanded="false" aria-controls="palette-panel">Color</button>
       </div>
     </aside>
 
@@ -432,6 +435,33 @@
     </section>
     </div>
     </main>
+
+    <div class="tour" id="tour" hidden>
+      <div class="tour-scrim" id="tour-scrim"></div>
+      <div
+        class="tour-card"
+        id="tour-card"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="tour-title"
+        aria-describedby="tour-body"
+      >
+        <p class="kicker" id="tour-kicker">How this works</p>
+        <p class="tour-count" id="tour-count">1 of 4</p>
+        <h2 id="tour-title" tabindex="-1">This page picks a look.</h2>
+        <p id="tour-body">
+          You are inside a salon catalog. The four services stay the same. House and Color
+          only change the room they sit in.
+        </p>
+        <div class="tour-actions">
+          <button type="button" class="btn btn-ghost" id="tour-skip">Skip</button>
+          <div class="tour-nav">
+            <button type="button" class="btn btn-ghost" id="tour-back">Back</button>
+            <button type="button" class="btn btn-primary" id="tour-next">Next</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <footer class="site-footer">
       <p>Nails of Destiny · plant-based nail services</p>

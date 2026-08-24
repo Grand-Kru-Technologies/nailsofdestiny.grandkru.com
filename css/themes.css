@@ -156,6 +156,7 @@ body::before {
 button, a, input, textarea { font: inherit; color: inherit; }
 button, [href] { cursor: pointer; }
 a { text-decoration: none; }
+[hidden] { display: none !important; }
 
 :focus-visible {
   outline: 3px solid var(--accent);
@@ -166,7 +167,7 @@ a { text-decoration: none; }
   position: absolute;
   left: 1rem;
   top: 0.75rem;
-  z-index: 90;
+  z-index: 110;
   padding: 0.75rem 1.1rem;
   min-height: var(--target);
   background: var(--accent);
@@ -273,7 +274,15 @@ html.is-fading body {
   min-height: var(--target);
 }
 
-.dock-back {
+.dock-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  flex-shrink: 0;
+}
+
+.dock-back,
+.dock-tour {
   display: inline-flex;
   align-items: center;
   min-height: var(--target);
@@ -281,6 +290,11 @@ html.is-fading body {
   border: 1px solid var(--line);
   background: transparent;
   border-radius: 999px;
+}
+
+.dock-tour {
+  color: var(--muted);
+  font-weight: 500;
 }
 
 [data-theme="garden"] .dock-mark {
@@ -883,6 +897,91 @@ html.is-fading body {
 .feedback { border: 1px solid var(--accent); }
 .error-summary { border: 1px solid #dc2626; }
 
+.tour {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+}
+
+.tour-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 92;
+  pointer-events: auto;
+  background: color-mix(in srgb, var(--bg) 28%, #050403 72%);
+  opacity: 0.82;
+}
+
+.tour-card {
+  position: fixed;
+  z-index: 98;
+  pointer-events: auto;
+  width: min(22.5rem, calc(100vw - 1.75rem));
+  padding: 1.15rem 1.2rem 1.2rem;
+  border: 1px solid var(--line);
+  border-radius: calc(var(--radius) + 8px);
+  background: var(--card);
+  color: var(--ink);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.32);
+}
+
+.tour-card .kicker { margin-bottom: 0.2rem; }
+
+.tour-count {
+  margin: 0 0 0.65rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.tour-card h2 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(1.45rem, 3vw, 1.85rem);
+  line-height: 1.15;
+  margin: 0 0 0.55rem;
+}
+
+.tour-card p#tour-body {
+  margin: 0;
+  color: var(--muted);
+}
+
+.tour-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.55rem;
+  margin-top: 1.15rem;
+}
+
+.tour-nav {
+  display: flex;
+  gap: 0.45rem;
+}
+
+.tour-card .btn:disabled {
+  opacity: 0.55;
+  cursor: wait;
+}
+
+html.is-touring {
+  overflow: hidden;
+}
+
+html.is-touring .dock:has(.is-tour-target),
+html.is-touring .float-rail.is-tour-target {
+  z-index: 96;
+}
+
+html.is-touring .is-tour-target {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
 /* Temple: editorial magazine + oversized type */
 [data-theme="temple"] .hero {
   grid-template-columns: 1.15fr 0.85fr;
@@ -1049,6 +1148,15 @@ html.is-fading body {
 @media (max-width: 900px) {
   .dock-note,
   .salon-nav ul { display: none; }
+
+  .dock {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .tour-card {
+    width: min(22.5rem, calc(100vw - 1.5rem));
+  }
 
   .panels,
   .hero,
