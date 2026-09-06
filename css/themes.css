@@ -247,7 +247,7 @@ a { text-decoration: none; }
   margin-top: 1.4rem;
 }
 
-.dock {
+.site-header {
   position: sticky;
   top: 0;
   z-index: 40;
@@ -283,41 +283,52 @@ html.is-fading body {
 
 .view-site[hidden] { display: none; }
 
-.dock-mark {
+.wordmark {
   font-family: var(--font-display);
-  letter-spacing: 0.16em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  font-size: 0.82rem;
+  font-size: 0.85rem;
   border: 0;
   background: transparent;
   padding: 0;
   min-height: var(--target);
-}
-
-.dock-actions {
-  display: flex;
-  align-items: center;
-  gap: 0.45rem;
   flex-shrink: 0;
 }
 
-.dock-book {
-  min-height: var(--target);
-  padding: 0.45rem 1rem;
-  font-size: 0.9rem;
-}
-
-[data-theme="garden"] .dock-mark {
+[data-theme="garden"] .wordmark {
   text-transform: none;
   font-style: italic;
-  letter-spacing: 0.04em;
-  font-size: 1.2rem;
+  letter-spacing: 0.06em;
+  font-size: 1.35rem;
 }
 
-.dock-note {
+.site-tagline {
   margin: 0;
   color: var(--muted);
   font-size: 0.85rem;
+  flex: 1;
+  text-align: center;
+}
+
+.site-nav ul {
+  display: flex;
+  gap: 1.6rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-nav a {
+  min-height: var(--target);
+  display: inline-flex;
+  align-items: center;
+}
+
+.site-book {
+  min-height: var(--target);
+  padding: 0.45rem 1rem;
+  font-size: 0.9rem;
+  flex-shrink: 0;
 }
 
 .houses-picker {
@@ -572,36 +583,7 @@ html.is-fading body {
 }
 
 .house {
-  border-top: 1px solid var(--line);
-}
-
-.salon-nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem 4vw;
-}
-
-.wordmark {
-  font-family: var(--font-display);
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  font-size: 0.85rem;
-}
-
-[data-theme="garden"] .wordmark {
-  text-transform: none;
-  font-style: italic;
-  letter-spacing: 0.06em;
-  font-size: 1.35rem;
-}
-
-.salon-nav ul {
-  display: flex;
-  gap: 1.6rem;
-  list-style: none;
-  margin: 0;
-  padding: 0;
+  border-top: 0;
 }
 
 .hero {
@@ -982,8 +964,7 @@ html.is-fading body {
   line-height: 1.6;
 }
 
-[data-theme="clay"] .wordmark,
-[data-theme="clay"] .dock-mark {
+[data-theme="clay"] .wordmark {
   text-transform: none;
   letter-spacing: 0.03em;
   font-weight: 600;
@@ -1251,10 +1232,10 @@ html.is-fading body {
 }
 
 @media (max-width: 900px) {
-  .dock-note,
-  .salon-nav ul { display: none; }
+  .site-tagline,
+  .site-nav ul { display: none; }
 
-  .dock {
+  .site-header {
     flex-wrap: wrap;
     gap: 0.5rem;
   }
