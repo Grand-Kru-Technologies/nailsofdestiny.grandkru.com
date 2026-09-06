@@ -18,9 +18,10 @@ const THEMES = {
     defaultPalette: "river",
     eyebrow: "Earth · Cowrie · Firelight",
     headline: "Earth-made. Destiny-kept.",
-    hero: "Clay and cowrie warmth for the same four services. Book the chair first. Take pigment home after if you want it.",
+    hero:
+      "Terracotta basins, cowrie light, and the same four services in fired earth. Book the chair first — pigment waits on the shelf.",
     menuTitle: "Nail services",
-    menuLede: "Soak, pedicure, cuticle rite, Destiny Set. Products sit on the second shelf.",
+    menuLede: "Soak, pedicure, cuticle rite, Destiny Set — served in clay-warm rooms, not warm paper.",
     houseTitle: "A studio with clay under its nails.",
     house:
       "Terracotta bento grids, 22px softness, and cowrie warmth. The same four services in fired earth and Sunday gold.",
@@ -29,11 +30,12 @@ const THEMES = {
   garden: {
     name: "Wild Herb Garden",
     defaultPalette: "linen",
-    eyebrow: "Linen · Sea moss · Morning",
+    eyebrow: "Linen · Sea moss · Sage",
     headline: "Sun, sea moss, and still hands.",
-    hero: "Morning light for the same four services. Book a ritual first. The garden shelf comes second.",
+    hero:
+      "Morning linen, herb air, and the same four services in soft garden light. Book the ritual first — the shelf comes after.",
     menuTitle: "Nail services",
-    menuLede: "Soak, pedicure, cuticle rite, Destiny Set. Products wait after you sit.",
+    menuLede: "Herb-cuticle rites and sea-moss soaks in linen-bright rooms. Products wait after you sit.",
     houseTitle: "A garden that does nails.",
     house:
       "Morning linen, curved photos, and Cormorant italics over Montserrat. Biophilic air — same chair, softer light.",
@@ -156,7 +158,7 @@ const HOUSE_SCENES = {
 };
 
 const OPTIONAL_THEME_FONTS = {
-  clay: "https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&display=swap",
+  clay: "https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&display=swap",
   garden:
     "https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,500;0,600;1,500;1,600&family=Montserrat:wght@400;500;600&display=swap",
 };
