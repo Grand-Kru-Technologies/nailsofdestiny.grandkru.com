@@ -1264,6 +1264,7 @@ html.is-fading body {
   .panels,
   .hero,
   [data-theme="temple"] .hero,
+  [data-theme="clay"] .hero,
   [data-theme="clay"] .rituals.catalog,
   [data-theme="clay"] .visit,
   [data-theme="garden"] .rituals.catalog,
@@ -1283,6 +1284,13 @@ html.is-fading body {
   }
 
   .panels { min-height: auto; }
+
+  [data-theme="clay"] .houses-picker,
+  [data-theme="clay"] .hero-copy,
+  [data-theme="garden"] .houses-picker {
+    margin-inline: 0;
+    border-radius: 0;
+  }
 
   [data-theme="clay"] .span-wide,
   [data-theme="clay"] .span-tall { grid-column: auto; grid-row: auto; }
