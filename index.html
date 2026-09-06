@@ -186,13 +186,14 @@
         <ul>
           <li><a href="#services">Services</a></li>
           <li><a href="#shelf">Products</a></li>
+          <li><a href="#houses">Houses</a></li>
           <li><a href="#book">Book</a></li>
         </ul>
         <a class="btn btn-primary" href="#book">Book a service</a>
       </nav>
 
       <header class="hero">
-        <div class="hero-photo" role="img" aria-label="Alkaline Temple nail sanctuary with sea moss and candlelight"></div>
+        <div class="hero-photo" id="hero-photo" role="img" aria-label="Alkaline Temple nail sanctuary with sea moss and candlelight"></div>
         <div class="hero-copy">
           <p class="kicker" data-copy="eyebrow">Plant · Mineral · Ancestral</p>
           <h1 data-copy="headline">Where the body is a garden.</h1>
@@ -206,6 +207,44 @@
           </div>
         </div>
       </header>
+
+      <section class="houses-picker" id="houses" aria-label="Three houses">
+        <div class="houses-lead">
+          <p class="kicker">Three houses</p>
+          <h2>Same chair. Three rooms.</h2>
+          <p class="muted houses-copy">
+            Alkaline Temple opens the door in gold. Red Clay and Wild Herb Garden dress the same four
+            services in earth and morning light.
+          </p>
+        </div>
+        <div class="houses-row" role="group" aria-label="House">
+          <button type="button" class="house-card" data-theme-btn="temple" aria-pressed="true">
+            <span class="panel-media temple" aria-hidden="true"></span>
+            <span class="house-card-meta">
+              <strong>Alkaline Temple</strong>
+              <em>Playfair · 2px · gold grove</em>
+            </span>
+          </button>
+          <button type="button" class="house-card" data-theme-btn="clay" aria-pressed="false">
+            <span class="panel-media clay" aria-hidden="true"></span>
+            <span class="house-card-meta">
+              <strong>Red Clay</strong>
+              <em>Fraunces · terracotta bento</em>
+            </span>
+          </button>
+          <button type="button" class="house-card" data-theme-btn="garden" aria-pressed="false">
+            <span class="panel-media garden" aria-hidden="true"></span>
+            <span class="house-card-meta">
+              <strong>Wild Herb Garden</strong>
+              <em>Cormorant · morning linen</em>
+            </span>
+          </button>
+        </div>
+        <div class="palettes-block">
+          <p class="kicker" id="palette-label">Color · Gold Grove</p>
+          <div class="palette-grid palette-grid-inline" id="palette-grid"></div>
+        </div>
+      </section>
 
       <section class="rituals catalog" id="services">
         <div class="section-lead">
@@ -339,7 +378,7 @@
       </section>
 
       <section class="story-block" id="house">
-        <figure class="still-frame" role="img" aria-label="Materials of the Alkaline Temple"></figure>
+        <figure class="still-frame" id="still-frame" role="img" aria-label="Materials of the Alkaline Temple"></figure>
         <div>
           <p class="kicker">The house</p>
           <h2 data-copy="houseTitle">Built for people who already drink the teas.</h2>
@@ -390,35 +429,9 @@
       <nav aria-label="Footer">
         <a href="#services">Services</a>
         <a href="#shelf">Products</a>
+        <a href="#houses">Houses</a>
         <a href="#book">Book</a>
       </nav>
-
-      <details class="appearance-panel" id="appearance">
-        <summary>Other looks <span class="appearance-hint">optional theme houses</span></summary>
-        <div class="appearance-body">
-          <div class="appearance-group">
-            <p class="kicker">House</p>
-            <div class="appearance-houses">
-              <button type="button" class="appearance-house" data-theme-btn="temple" aria-pressed="true">
-                <span class="panel-media temple" aria-hidden="true"></span>
-                <span>Alkaline Temple</span>
-              </button>
-              <button type="button" class="appearance-house" data-theme-btn="clay" aria-pressed="false">
-                <span class="panel-media clay" aria-hidden="true"></span>
-                <span>Red Clay</span>
-              </button>
-              <button type="button" class="appearance-house" data-theme-btn="garden" aria-pressed="false">
-                <span class="panel-media garden" aria-hidden="true"></span>
-                <span>Wild Herb Garden</span>
-              </button>
-            </div>
-          </div>
-          <div class="appearance-group">
-            <p class="kicker">Color</p>
-            <div class="palette-grid" id="palette-grid"></div>
-          </div>
-        </div>
-      </details>
     </footer>
 
     <script src="js/app.js"></script>

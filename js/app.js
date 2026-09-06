@@ -10,7 +10,7 @@ const THEMES = {
     menuLede: "Soak, pedicure, cuticle rite, Destiny Set. Book the chair first. Products wait below.",
     houseTitle: "Built for people who already drink the teas.",
     house:
-      "Gold hairlines, candlelight, and slower hands. Soak, pedicure, cuticle rite, Destiny Set — then the shelf if you want it. Afrocentric on purpose.",
+      "Gold hairlines, candlelight, and slower hands. Editorial type, 2px corners, forest wall and antique gold. Afrocentric on purpose.",
     booking: "Book a service",
   },
   clay: {
@@ -22,7 +22,8 @@ const THEMES = {
     menuTitle: "Nail services",
     menuLede: "Soak, pedicure, cuticle rite, Destiny Set. Products sit on the second shelf.",
     houseTitle: "A studio with clay under its nails.",
-    house: "Terracotta tiles and Sunday-best gold. Soak, pedicure, cuticle rite, Destiny Set — then the shelf.",
+    house:
+      "Terracotta bento grids, 22px softness, and cowrie warmth. The same four services in fired earth and Sunday gold.",
     booking: "Book a service",
   },
   garden: {
@@ -34,7 +35,8 @@ const THEMES = {
     menuTitle: "Nail services",
     menuLede: "Soak, pedicure, cuticle rite, Destiny Set. Products wait after you sit.",
     houseTitle: "A garden that does nails.",
-    house: "Linen, sage, and sky over the same four services. Book first — shelf second.",
+    house:
+      "Morning linen, curved photos, and Cormorant italics over Montserrat. Biophilic air — same chair, softer light.",
     booking: "Book a service",
   },
 };
@@ -138,6 +140,21 @@ const PALETTES = {
   },
 };
 
+const HOUSE_SCENES = {
+  temple: {
+    heroLabel: "Alkaline Temple nail sanctuary with sea moss and candlelight",
+    stillLabel: "Sea moss, gold vessels, and candlelight in the Alkaline Temple",
+  },
+  clay: {
+    heroLabel: "Red Clay studio with terracotta basins and cowrie warmth",
+    stillLabel: "River clay, cowrie shells, and fired earth in the Red Clay studio",
+  },
+  garden: {
+    heroLabel: "Wild Herb Garden in morning linen light with sea moss and sage",
+    stillLabel: "Linen, sage, and herb cuttings in the Wild Herb Garden",
+  },
+};
+
 const OPTIONAL_THEME_FONTS = {
   clay: "https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&display=swap",
   garden:
@@ -151,6 +168,9 @@ const copyNodes = document.querySelectorAll("[data-copy]");
 const themeButtons = document.querySelectorAll("[data-theme-btn]");
 const dockNote = document.getElementById("dock-note");
 const paletteGrid = document.getElementById("palette-grid");
+const paletteLabel = document.getElementById("palette-label");
+const heroPhoto = document.getElementById("hero-photo");
+const stillFrame = document.getElementById("still-frame");
 const quotes = [...document.querySelectorAll("[data-quote]")];
 const quoteStatus = document.getElementById("quote-status");
 let quoteIndex = 0;
@@ -211,6 +231,15 @@ function applyTheme(theme, palette) {
     dockNote.textContent = "Plant-based nail services · by appointment";
   } else {
     dockNote.textContent = `${copy.name} · ${paletteName(theme, nextPalette)}`;
+  }
+  if (paletteLabel) {
+    paletteLabel.textContent = `Color · ${paletteName(theme, nextPalette)}`;
+  }
+  if (heroPhoto && HOUSE_SCENES[theme]) {
+    heroPhoto.setAttribute("aria-label", HOUSE_SCENES[theme].heroLabel);
+  }
+  if (stillFrame && HOUSE_SCENES[theme]) {
+    stillFrame.setAttribute("aria-label", HOUSE_SCENES[theme].stillLabel);
   }
   renderPalettes(theme, nextPalette);
 }
