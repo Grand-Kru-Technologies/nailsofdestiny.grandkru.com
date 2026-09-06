@@ -307,4 +307,5 @@ document.getElementById("back-to-top").addEventListener("click", () => {
 document.getElementById("quote-prev").addEventListener("click", () => showQuote(quoteIndex - 1));
 document.getElementById("quote-next").addEventListener("click", () => showQuote(quoteIndex + 1));
 
+applyTheme("temple", "gold");
 showQuote(0);
