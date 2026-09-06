@@ -35,7 +35,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,500;0,600;1,500;1,600&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Montserrat:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,500&family=Source+Sans+3:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/themes.css" />
@@ -170,81 +170,83 @@
   <body>
     <a class="skip-link" href="#main">Skip to main content</a>
     <div class="veil" aria-hidden="true"></div>
-    <header class="dock">
-      <button type="button" class="dock-mark" id="back-to-chooser">Nails of Destiny</button>
-      <p class="dock-note" id="dock-note">Three houses. Pick the one that feels like home.</p>
-      <div class="dock-actions">
-        <button type="button" class="dock-tour" id="start-tour">How this works</button>
-        <button type="button" class="dock-back" id="all-houses">Keep this look</button>
-      </div>
-    </header>
-
-    <aside class="float-rail float-looks" aria-label="Look and feel">
-      <div class="float-anchor">
-        <div class="float-panel" id="look-panel">
-          <p class="kicker">Look &amp; feel</p>
-          <button type="button" class="float-house" data-theme-btn="temple" aria-pressed="true">
-            <span class="panel-media temple" aria-hidden="true"></span>
-            <span>Alkaline Temple</span>
-          </button>
-          <button type="button" class="float-house" data-theme-btn="clay" aria-pressed="false">
-            <span class="panel-media clay" aria-hidden="true"></span>
-            <span>Red Clay</span>
-          </button>
-          <button type="button" class="float-house" data-theme-btn="garden" aria-pressed="false">
-            <span class="panel-media garden" aria-hidden="true"></span>
-            <span>Wild Herb Garden</span>
-          </button>
-        </div>
-        <button class="float-toggle" type="button" id="look-toggle" aria-expanded="false" aria-controls="look-panel">House</button>
-      </div>
-    </aside>
-
-    <aside class="float-rail float-palettes" aria-label="Color templates">
-      <div class="float-anchor">
-        <div class="float-panel" id="palette-panel">
-          <p class="kicker">Color</p>
-          <div class="palette-grid" id="palette-grid"></div>
-        </div>
-        <button class="float-toggle" type="button" id="palette-toggle" aria-expanded="false" aria-controls="palette-panel">Color</button>
-      </div>
-    </aside>
-
-    <main id="main">
-    <div class="view view-site" id="site">
-    <article class="house" id="shop" aria-label="Service catalog preview">
-      <nav class="salon-nav" aria-label="Salon">
-        <span class="wordmark">Nails of Destiny</span>
+    <header class="site-header" aria-label="Site">
+      <button type="button" class="wordmark" id="back-to-top">Nails of Destiny</button>
+      <p class="site-tagline" id="dock-note">Plant-based nail services · by appointment</p>
+      <nav class="site-nav" aria-label="Primary">
         <ul>
           <li><a href="#services">Services</a></li>
           <li><a href="#shelf">Products</a></li>
-          <li><a href="#choose">Keep this look</a></li>
+          <li><a href="#houses">Three houses</a></li>
+          <li><a href="#book">Book</a></li>
         </ul>
-        <a class="btn btn-primary" href="#services">Book a service</a>
       </nav>
+      <a class="btn btn-primary site-book" href="#book">Book a service</a>
+    </header>
 
+    <main id="main">
+    <div class="view view-site" id="site">
+    <article class="house" id="shop" aria-label="Nails of Destiny salon">
       <header class="hero">
-        <div class="hero-photo" role="img" aria-label="Nail service atmosphere for this look"></div>
+        <div class="hero-photo" id="hero-photo" role="img" aria-label="Alkaline Temple nail sanctuary with sea moss and candlelight"></div>
         <div class="hero-copy">
           <p class="kicker" data-copy="eyebrow">Plant · Mineral · Ancestral</p>
           <h1 data-copy="headline">Where the body is a garden.</h1>
           <p class="hero-lede" data-copy="hero">
-            A nail-service catalog first — then a small take-home shelf. Plant pigments,
-            sea moss soaks, and hands that treat beauty as a rite.
+            Plant pigments, sea moss soaks, and hands that treat beauty as a rite.
+            Book the chair first — take-home formulas wait on the shelf below.
           </p>
           <div class="cta-row">
-            <a class="btn btn-primary" href="#services">See the service catalog</a>
-            <button class="btn btn-ghost" type="button" id="hero-choose">Keep this house</button>
+            <a class="btn btn-primary" href="#book">Book a service</a>
+            <a class="btn btn-ghost" href="#services">View services</a>
           </div>
         </div>
       </header>
 
+      <section class="houses-picker" id="houses" aria-label="Three houses">
+        <div class="houses-lead">
+          <p class="kicker">Three houses</p>
+          <h2>Same chair. Three rooms.</h2>
+          <p class="muted houses-copy">
+            Alkaline Temple opens the door in gold. Red Clay and Wild Herb Garden dress the same four
+            services in earth and morning light.
+          </p>
+        </div>
+        <div class="houses-row" role="group" aria-label="House">
+          <button type="button" class="house-card" data-theme-btn="temple" aria-pressed="true">
+            <span class="panel-media temple" aria-hidden="true"></span>
+            <span class="house-card-meta">
+              <strong>Alkaline Temple</strong>
+              <em>Playfair · 2px · gold grove</em>
+            </span>
+          </button>
+          <button type="button" class="house-card" data-theme-btn="clay" aria-pressed="false">
+            <span class="panel-media clay" aria-hidden="true"></span>
+            <span class="house-card-meta">
+              <strong>Red Clay</strong>
+              <em>Fraunces · Source Sans · 22px clay</em>
+            </span>
+          </button>
+          <button type="button" class="house-card" data-theme-btn="garden" aria-pressed="false">
+            <span class="panel-media garden" aria-hidden="true"></span>
+            <span class="house-card-meta">
+              <strong>Wild Herb Garden</strong>
+              <em>Cormorant · Montserrat · 28px garden</em>
+            </span>
+          </button>
+        </div>
+        <div class="palettes-block">
+          <p class="kicker" id="palette-label">Color · Gold Grove</p>
+          <div class="palette-grid palette-grid-inline" id="palette-grid"></div>
+        </div>
+      </section>
+
       <section class="rituals catalog" id="services">
         <div class="section-lead">
-          <p class="kicker">Catalog · Services first</p>
-          <h2 data-copy="menuTitle">Nail services. This is the first menu.</h2>
+          <p class="kicker">Services</p>
+          <h2 data-copy="menuTitle">Nail services</h2>
           <p class="muted" data-copy="menuLede">
-            Same four services in every house. Book the chair first. Products wait below.
+            Soak, pedicure, cuticle rite, Destiny Set. Book the chair first. Products wait below.
           </p>
         </div>
         <div class="cards">
@@ -264,7 +266,7 @@
               </figure>
               <p>Warm gel soak, cuticle rite, and a natural shape that follows the nail.</p>
               <p class="meta"><span class="price">$45</span><span>45 min</span></p>
-              <button class="btn btn-primary" type="button">Book this service</button>
+              <a class="btn btn-primary" href="#book">Book this service</a>
             </div>
           </article>
           <article class="card">
@@ -284,7 +286,7 @@
               </figure>
               <p>Clay, salt, and herb steam for feet that have walked too much concrete.</p>
               <p class="meta"><span class="price">$55</span><span>60 min</span></p>
-              <button class="btn btn-ghost" type="button">Book this service</button>
+              <a class="btn btn-primary" href="#book">Book this service</a>
             </div>
           </article>
           <article class="card">
@@ -304,7 +306,7 @@
               </figure>
               <p>Burdock, olive, and plant oils. Soft edges. No burning strippers.</p>
               <p class="meta"><span class="price">$35</span><span>30 min</span></p>
-              <button class="btn btn-ghost" type="button">Book this service</button>
+              <a class="btn btn-primary" href="#book">Book this service</a>
             </div>
           </article>
           <article class="card span-tall">
@@ -324,7 +326,7 @@
               </figure>
               <p>Full service in gold, clay, sage, or sea moss — whatever the house is wearing.</p>
               <p class="meta"><span class="price">$85</span><span>75 min</span></p>
-              <button class="btn btn-primary" type="button">Book this service</button>
+              <a class="btn btn-primary" href="#book">Book this service</a>
             </div>
           </article>
         </div>
@@ -332,8 +334,8 @@
 
       <section class="rituals catalog products" id="shelf">
         <div class="section-lead">
-          <p class="kicker">Catalog · Take home after</p>
-          <h2>Nail products. Second.</h2>
+          <p class="kicker">Take home</p>
+          <h2>Nail products</h2>
           <p class="muted">The same formulas used in the chair, if you want them on your shelf.</p>
         </div>
         <div class="cards product-cards">
@@ -371,13 +373,13 @@
       </section>
 
       <section class="story-block" id="house">
-        <figure class="still-frame" role="img" aria-label="Materials of this house"></figure>
+        <figure class="still-frame" id="still-frame" role="img" aria-label="Materials of the Alkaline Temple"></figure>
         <div>
           <p class="kicker">The house</p>
           <h2 data-copy="houseTitle">Built for people who already drink the teas.</h2>
           <p class="drop" data-copy="house">
-            Every look opens on the same service catalog: soak, pedicure, cuticle rite,
-            Destiny Set. Products come after. Afrocentric on purpose.
+            Gold hairlines, candlelight, and slower hands. Soak, pedicure, cuticle rite,
+            Destiny Set — then the shelf if you want it. Afrocentric on purpose.
           </p>
           <p class="muted">We do not claim to heal disease. We claim a cleaner table and slower hands.</p>
         </div>
@@ -406,62 +408,15 @@
         </div>
       </section>
 
-      <section class="visit">
+      <section class="visit" id="book">
         <p class="kicker">By appointment</p>
-        <h2 data-copy="booking">Services first. Then the shelf.</h2>
-        <a class="btn btn-primary" href="#services">Back to the service catalog</a>
+        <h2 data-copy="booking">Book a service</h2>
+        <p class="muted visit-lede">Choose a service above, then reach out to hold your chair.</p>
+        <a class="btn btn-primary" href="mailto:book@nailsofdestiny.com?subject=Service%20booking">Book a service</a>
       </section>
     </article>
-
-    <section class="decide" id="choose">
-      <p class="kicker">Keep or comment</p>
-      <h2>Stay with this house?</h2>
-      <p class="muted" data-copy="chooser">You are previewing Alkaline Temple · Gold Grove.</p>
-      <p class="muted">Houses and colors live on the rails. This is only to keep one or ask for something else.</p>
-      <button class="btn btn-primary" type="button" id="choose-look">Keep this look and palette</button>
-
-      <form id="feedback-form" novalidate>
-        <div class="error-summary" id="error-summary" tabindex="-1"></div>
-        <label for="comment">Or write what you’d rather see</label>
-        <textarea id="comment" name="comment" placeholder="Mix clay with sea moss? More gold? A fourth house?"></textarea>
-        <label for="name">Your name (optional)</label>
-        <input id="name" name="name" type="text" autocomplete="name" />
-        <div class="cta-row">
-          <button class="btn btn-primary" type="submit">Send comment</button>
-          <button class="btn btn-ghost" type="button" id="copy-feedback">Copy feedback</button>
-        </div>
-        <div class="feedback" id="feedback" role="status"></div>
-      </form>
-    </section>
     </div>
     </main>
-
-    <div class="tour" id="tour" hidden>
-      <div class="tour-scrim" id="tour-scrim"></div>
-      <div
-        class="tour-card"
-        id="tour-card"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="tour-title"
-        aria-describedby="tour-body"
-      >
-        <p class="kicker" id="tour-kicker">How this works</p>
-        <p class="tour-count" id="tour-count">1 of 4</p>
-        <h2 id="tour-title" tabindex="-1">This page picks a look.</h2>
-        <p id="tour-body">
-          You are inside a salon catalog. The four services stay the same. House and Color
-          only change the room they sit in.
-        </p>
-        <div class="tour-actions">
-          <button type="button" class="btn btn-ghost" id="tour-skip">Skip</button>
-          <div class="tour-nav">
-            <button type="button" class="btn btn-ghost" id="tour-back">Back</button>
-            <button type="button" class="btn btn-primary" id="tour-next">Next</button>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <footer class="site-footer">
       <p>Nails of Destiny · plant-based nail services</p>
@@ -469,8 +424,12 @@
       <nav aria-label="Footer">
         <a href="#services">Services</a>
         <a href="#shelf">Products</a>
-        <a href="#choose">Keep this look</a>
+        <a href="#houses">Three houses</a>
+        <a href="#book">Book</a>
       </nav>
+      <p class="footer-houses muted">
+        <a href="#houses">Temple · Clay · Garden</a> — same chair, three rooms.
+      </p>
     </footer>
 
     <script src="js/app.js"></script>
